@@ -17,7 +17,9 @@ router.get('/user', isLoggedIn, (req, res) => {
 });
 
 router.get('/google', passport.authenticate('google', {
-    scope: ['profile', 'email']
+    scope: ['profile', 'email', 'https://www.googleapis.com/auth/calendar'],
+    accessType: 'offline',
+    prompt: 'consent'
 }));
 
 // Callback

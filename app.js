@@ -13,6 +13,10 @@ import './src/config/passport-setup.js'; // Apenas executa o arquivo de configur
 import usuarioRoutes from './src/api/routes/usuarioRoutes.js';
 import criancaRoutes from './src/api/routes/criancaRoutes.js';
 import authRoutes from './src/api/routes/authRoutes.js';
+import refeicaoRoutes from './src/api/routes/refeicaoRoutes.js';
+import calendarioRoutes from './src/api/routes/calendarioRoutes.js';
+import remedioRoutes from './src/api/routes/remedioRoutes.js';
+import telefoneEmergenciaRoutes from './src/api/routes/telefoneEmergenciaRoutes.js';
 
 const app = express();
 
@@ -61,8 +65,12 @@ app.get('/', (req, res) => {
 });
 
 app.use('/auth', authRoutes);
-app.use('/usuarios', usuarioRoutes);
-app.use('/criancas', criancaRoutes);
+app.use('/api/usuarios', usuarioRoutes);
+app.use('/api/criancas', criancaRoutes);
+app.use('/api/refeicoes', refeicaoRoutes);
+app.use('/api/calendario', calendarioRoutes);
+app.use('/api/remedios', remedioRoutes);
+app.use('/api/telefones-emergencia', telefoneEmergenciaRoutes);
 // Middleware de Tratamento de Erros
 app.use((err, req, res, next) => {
     console.error("ERRO GLOBAL:", err);

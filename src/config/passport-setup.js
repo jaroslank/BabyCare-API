@@ -16,24 +16,45 @@ if (!GOOGLE_CLIENT_ID || !GOOGLE_CLIENT_SECRET) {
 passport.use(new GoogleStrategy({
     clientID: GOOGLE_CLIENT_ID,
     clientSecret: GOOGLE_CLIENT_SECRET,
-    callbackURL: CALLBACK_URL
+    callbackURL: CALLBACK_URL,
+    scope: ['profile', 'email', 'https://www.googleapis.com/auth/calendar'],
+    accessType: 'offline',
+    prompt: 'consent'
 }, async (accessToken, refreshToken, profile, done) => {
     try {
         const googleId = profile.id;
         const email = profile.emails && profile.emails[0] && profile.emails[0].value;
         const nome = profile.displayName || (profile.name && `${profile.name.givenName} ${profile.name.familyName}`) || 'Usuário Google';
+        const avatarUrl = profile.photos && profile.photos[0] && profile.photos[0].value;
 
         // Tenta achar usuário existente
         let usuario = await usuarioRepository.buscarPorGoogleId(googleId);
         if (usuario) {
+            // Atualiza o avatar_url caso tenha mudado
+            if (avatarUrl && usuario.avatar_url !== avatarUrl) {
+                await usuarioRepository.atualizarAvatar(usuario.id, avatarUrl);
+                usuario.avatar_url = avatarUrl;
+            }
+            // Atualiza tokens do Google Calendar
+            if (accessToken) {
+                const tokenExpiry = new Date(Date.now() + 3600 * 1000); // 1 hora de validade
+                await usuarioRepository.atualizarTokensGoogle(usuario.id, accessToken, refreshToken, tokenExpiry);
+                usuario.google_access_token = accessToken;
+                usuario.google_refresh_token = refreshToken || usuario.google_refresh_token;
+            }
             return done(null, usuario);
         }
 
         // Se não existe, cria um novo usuário
+        const tokenExpiry = new Date(Date.now() + 3600 * 1000); // 1 hora de validade
         const novoUsuario = {
             nome,
             email,
-            googleId
+            googleId,
+            avatarUrl,
+            googleAccessToken: accessToken,
+            googleRefreshToken: refreshToken,
+            tokenExpiry
         };
 
         usuario = await usuarioRepository.criar(novoUsuario);
