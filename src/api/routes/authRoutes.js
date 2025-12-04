@@ -38,8 +38,8 @@ router.get('/google/callback', (req, res, next) => {
                 }
                 // Redireciona para o frontend (configurado via .env)
                 // Lembre-se de verificar se esta URL no .env está correta!
-                // Deve ser: FRONTEND_URL=http://localhost:5500/dashboard.html (ou index.html)
-                return res.redirect(process.env.FRONTEND_URL || 'http://localhost:5500/dashboard.html');
+                // Deve ser: FRONTEND_URL=https://babycare-api.onrender.com/dashboard.html (ou index.html)
+                return res.redirect(process.env.FRONTEND_URL || 'https://babycare-api.onrender.com/dashboard.html');
             });
         });
     })(req, res, next);
@@ -50,8 +50,8 @@ router.get('/logout', (req, res, next) => {
     req.logout(function(err) {
         if (err) { return next(err); }
         // Lembre-se de verificar se esta URL no .env está correta!
-        // Deve ser: FRONTEND_URL_LOGIN=http://localhost:5500/login.html
-        res.redirect(process.env.FRONTEND_URL_LOGIN || 'http://localhost:5500/login.html');
+        // Deve ser: FRONTEND_URL_LOGIN=https://babycare-api.onrender.com/login.html
+        res.redirect(process.env.FRONTEND_URL_LOGIN || 'https://babycare-api.onrender.com/login.html');
     });
 });
 

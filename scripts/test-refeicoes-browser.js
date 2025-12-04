@@ -1,13 +1,13 @@
 /**
  * INSTRUÇÕES DE TESTE (Browser Console):
  * 
- * 1. Abra seu navegador e faça login na aplicação (http://localhost:5500 ou similar).
+ * 1. Abra seu navegador e faça login na aplicação (https://babycare-api.onrender.com ou similar).
  * 2. Abra o Console do Desenvolvedor (F12 -> Console).
  * 3. Copie e cole todo o código abaixo e aperte Enter.
  */
 
 (async () => {
-    const API_URL = 'http://localhost:3000/api'; // Ajuste a porta se necessário
+    const API_URL = 'https://babycare-api.onrender.com/api'; // Ajuste a porta se necessário
 
     console.log('🚀 Iniciando teste de Refeições...');
 

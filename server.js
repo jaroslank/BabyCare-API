@@ -15,7 +15,7 @@ async function startServer() {
 
         app.listen(PORT, () => {
             console.log(`Servidor rodando na porta ${PORT}`);
-            console.log(`Acesse http://localhost:${PORT} para testar sua conexão`);
+            console.log(`Acesse ${process.env.BACKEND_URL || 'https://babycare-api.onrender.com'} para testar sua conexão`);
         });
     } catch (error) {
         console.error('####################################################');

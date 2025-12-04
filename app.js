@@ -22,7 +22,7 @@ const app = express();
 
 // Configuração de CORS
 app.use(cors({
-    origin: ['http://localhost:3001', 'http://127.0.0.1:3001', 'http://localhost:5500', 'http://127.0.0.1:5500'], 
+    origin: ['https://babycare-api.onrender.com'], 
     credentials: true,
 }));
 
@@ -54,7 +54,7 @@ app.get('/', (req, res) => {
             <p>A API está no ar e funcionando.</p>
             <p>Para iniciar o processo de autenticação, clique no link abaixo:</p>
             <a 
-                href="http://localhost:3000/auth/google" 
+                href="https://babycare-api.onrender.com/auth/google" 
                 style="display: inline-block; margin-top: 20px; padding: 12px 24px; background-color: #4285F4; color: white; text-decoration: none; border-radius: 5px; font-weight: bold; box-shadow: 0 2px 4px rgba(0,0,0,0.2);"
             >
                 Login com Google

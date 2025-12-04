@@ -6,7 +6,7 @@ dotenv.config();
 
 const GOOGLE_CLIENT_ID = process.env.GOOGLE_CLIENT_ID;
 const GOOGLE_CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET;
-const REDIRECT_URI = process.env.GOOGLE_CALLBACK_URL || 'http://localhost:3000/auth/google/callback';
+const REDIRECT_URI = process.env.GOOGLE_CALLBACK_URL || 'https://babycare-api.onrender.com/auth/google/callback';
 
 // Criar cliente OAuth2
 function criarOAuth2Client(accessToken, refreshToken) {

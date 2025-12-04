@@ -7,7 +7,7 @@ dotenv.config();
 
 const GOOGLE_CLIENT_ID = process.env.GOOGLE_CLIENT_ID;
 const GOOGLE_CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET;
-const CALLBACK_URL = process.env.GOOGLE_CALLBACK_URL || (process.env.BACKEND_URL ? `${process.env.BACKEND_URL}/auth/google/callback` : 'http://localhost:3000/auth/google/callback');
+const CALLBACK_URL = process.env.GOOGLE_CALLBACK_URL || (process.env.BACKEND_URL ? `${process.env.BACKEND_URL}/auth/google/callback` : 'https://babycare-api.onrender.com/auth/google/callback');
 
 if (!GOOGLE_CLIENT_ID || !GOOGLE_CLIENT_SECRET) {
     console.warn('Aviso: GOOGLE_CLIENT_ID ou GOOGLE_CLIENT_SECRET não estão configurados. O login via Google não funcionará até isso ser definido.');

@@ -10,7 +10,7 @@ Antes de testar, certifique-se de:
 
 ### 1. Criar Remédio
 ```bash
-curl -X POST http://localhost:3000/api/remedios \
+curl -X POST https://babycare-api.onrender.com/api/remedios \
   -H "Content-Type: application/json" \
   -b cookies.txt \
   -d '{
@@ -25,19 +25,19 @@ curl -X POST http://localhost:3000/api/remedios \
 
 ### 2. Listar Remédios
 ```bash
-curl -X GET http://localhost:3000/api/remedios \
+curl -X GET https://babycare-api.onrender.com/api/remedios \
   -b cookies.txt
 ```
 
 ### 3. Buscar Remédio por ID
 ```bash
-curl -X GET http://localhost:3000/api/remedios/UUID_DO_REMEDIO \
+curl -X GET https://babycare-api.onrender.com/api/remedios/UUID_DO_REMEDIO \
   -b cookies.txt
 ```
 
 ### 4. Atualizar Remédio
 ```bash
-curl -X PUT http://localhost:3000/api/remedios/UUID_DO_REMEDIO \
+curl -X PUT https://babycare-api.onrender.com/api/remedios/UUID_DO_REMEDIO \
   -H "Content-Type: application/json" \
   -b cookies.txt \
   -d '{
@@ -48,7 +48,7 @@ curl -X PUT http://localhost:3000/api/remedios/UUID_DO_REMEDIO \
 
 ### 5. Deletar Remédio
 ```bash
-curl -X DELETE http://localhost:3000/api/remedios/UUID_DO_REMEDIO \
+curl -X DELETE https://babycare-api.onrender.com/api/remedios/UUID_DO_REMEDIO \
   -b cookies.txt
 ```
 
@@ -58,7 +58,7 @@ curl -X DELETE http://localhost:3000/api/remedios/UUID_DO_REMEDIO \
 
 ### 1. Criar Telefone de Emergência
 ```bash
-curl -X POST http://localhost:3000/api/telefones-emergencia \
+curl -X POST https://babycare-api.onrender.com/api/telefones-emergencia \
   -H "Content-Type: application/json" \
   -b cookies.txt \
   -d '{
@@ -69,19 +69,19 @@ curl -X POST http://localhost:3000/api/telefones-emergencia \
 
 ### 2. Listar Telefones de Emergência
 ```bash
-curl -X GET http://localhost:3000/api/telefones-emergencia \
+curl -X GET https://babycare-api.onrender.com/api/telefones-emergencia \
   -b cookies.txt
 ```
 
 ### 3. Buscar Telefone por ID
 ```bash
-curl -X GET http://localhost:3000/api/telefones-emergencia/UUID_DO_TELEFONE \
+curl -X GET https://babycare-api.onrender.com/api/telefones-emergencia/UUID_DO_TELEFONE \
   -b cookies.txt
 ```
 
 ### 4. Atualizar Telefone
 ```bash
-curl -X PUT http://localhost:3000/api/telefones-emergencia/UUID_DO_TELEFONE \
+curl -X PUT https://babycare-api.onrender.com/api/telefones-emergencia/UUID_DO_TELEFONE \
   -H "Content-Type: application/json" \
   -b cookies.txt \
   -d '{
@@ -92,7 +92,7 @@ curl -X PUT http://localhost:3000/api/telefones-emergencia/UUID_DO_TELEFONE \
 
 ### 5. Deletar Telefone
 ```bash
-curl -X DELETE http://localhost:3000/api/telefones-emergencia/UUID_DO_TELEFONE \
+curl -X DELETE https://babycare-api.onrender.com/api/telefones-emergencia/UUID_DO_TELEFONE \
   -b cookies.txt
 ```
 
@@ -104,7 +104,7 @@ Para testar via curl, você precisa salvar os cookies da sessão após fazer log
 
 ```bash
 # Fazer login e salvar cookies
-curl -X GET http://localhost:3000/auth/google \
+curl -X GET https://babycare-api.onrender.com/auth/google \
   -c cookies.txt \
   -L
 ```
